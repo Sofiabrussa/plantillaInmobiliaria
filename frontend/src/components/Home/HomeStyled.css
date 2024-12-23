@@ -10,6 +10,18 @@
 
 .title-home h1 {
     font-family: var(--font-title);
-    font-size: 4rem;
+    font-size: 5rem;
     font-weight: 500;
 }
+
+.container-filtro {
+    background-color: aliceblue;
+    width: 85%;
+    height: 20%;
+    opacity: 0.95;
+}
+
+.componente-filtro .MuiBox-root {
+    width: 100%;
+    height: 100%; /* Esto hace que el Box ocupe toda la altura de .componente-filtro */
+  }
