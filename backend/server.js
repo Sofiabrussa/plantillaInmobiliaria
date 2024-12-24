@@ -4,10 +4,9 @@ const Propiedad = require('./models/propiedad'); // Importa el modelo
 const TipoOperacion = require('./models/tipoOperacion');
 const TipoPropiedad = require('./models/tipoPropiedad');
 const propiedadesRoutes = require('./routes/propiedades'); //Importo la ruta propiedades
-
+const tipoPropiedadRoutes = require('./routes/tipo_propiedades');
 
 const sequelize = require('./config/database');
-
 
 // Verificar la conexión a la base de datos
 sequelize.authenticate()  // intenta establecer una conexión con la base de datos utilizando los parámetros que definiste en database.js
@@ -32,6 +31,7 @@ app.get('/', (req, res) => {
   res.send('¡Servidor funcionando!');
 });
 app.use('/api', propiedadesRoutes); // Asocia las rutas al prefijo /api
+app.use('/api', tipoPropiedadRoutes);
 
 
 // Configurar el puerto y iniciar el servidor
