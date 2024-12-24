@@ -1,8 +1,8 @@
 import './HomeStyled.css';
 import { FaPlus } from "react-icons/fa";
 import CountUp from "react-countup";
-import { Box, Tabs, Tab, Typography } from '@mui/material';
-import React, { useState } from "react";
+import { Box, Tabs, Tab } from '@mui/material';
+import React, { useState, useEffect } from "react";
 
 function Home() {
 
@@ -11,6 +11,21 @@ function Home() {
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
+
+  /*Tipos propiedad*/
+  const [tiposPropiedad, setTiposPropiedad] = useState([]);
+
+  useEffect(() => { //realizo una petición HTTP a tu backend y luego proceso esos datos para que se muestren en el frontend.
+    fetch('http://localhost:3000/api/tipos-propiedad') //fetch realiza una solicitud HTTP
+      .then((response) => response.json()) // Convierte la respuesta a JSON
+      .then((data) => {
+        setTiposPropiedad(data); //actualizo el estado de tiposPropiedad con los datos que vinieron de la API. 
+      })
+      .catch((error) => {
+        console.error('Error al cargar los tipos de propiedad:', error); // Maneja el error
+      });
+  }, []);
+
 
   return (
     <div className="container-fluid home d-flex" style={{ backgroundImage: `url("/inicio/inicio.png")` }}>
@@ -51,22 +66,26 @@ function Home() {
             </Tabs>
 
             {/* Conditional Filters */}
-            <Box className="d-flex flex-row flex-wrap mt-3 align-items-center justify-content-start ">
+            <Box className="d-flex flex-row flex-wrap mt-3 align-items-center justify-content-around">
               {value === "one" && (
-                <Box className="d-flex flex-row gap-5 " >
-                  <Box className="d-flex flex-column">
+                <Box className="d-flex flex-row gap-5 align-items-center justify-content-around" >
+                  <Box className="d-flex flex-column align-items-start">
                     <label>Ubicación:</label>
                     <input type="number" />
                   </Box>
-                  <Box className="d-flex flex-column">
+                  <Box className="d-flex flex-column align-items-start">
                     <label>Tipo de propiedad:</label>
                     <select>
-                      <option value="casa">Casa</option>
-                      <option value="departamento">Departamento</option>
-                      <option value="terreno">Terreno</option>
+                      {tiposPropiedad.map((tipo) => (
+                        <option key={tipo.id} value={tipo.id}>
+                          {tipo.nombre}
+                        </option>
+                      ))}
                     </select>
                   </Box>
-                  {/* Agrega más filtros específicos para Alquiler */}
+                  <Box className="d-flex flex-column align-items-start" >
+                    <button> Buscar </button>
+                  </Box>
                 </Box>
               )}
               {value === "two" && (
@@ -78,12 +97,16 @@ function Home() {
                   <Box className="d-flex flex-column">
                     <label>Tipo de propiedad:</label>
                     <select>
-                      <option value="casa">Casa</option>
-                      <option value="departamento">Departamento</option>
-                      <option value="terreno">Terreno</option>
+                      {tiposPropiedad.map((tipo) => (
+                        <option key={tipo.id} value={tipo.id}>
+                          {tipo.nombre}
+                        </option>
+                      ))}
                     </select>
                   </Box>
-                  {/* Agrega más filtros específicos para Venta */}
+                  <Box >
+                    <button> Buscar </button>
+                  </Box>
                 </Box>
               )}
             </Box>

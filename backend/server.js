@@ -7,6 +7,14 @@ const propiedadesRoutes = require('./routes/propiedades'); //Importo la ruta pro
 const tipoPropiedadRoutes = require('./routes/tipo_propiedades');
 
 const sequelize = require('./config/database');
+const cors = require('cors');
+
+// Configuración básica de CORS
+app.use(cors({
+  origin: 'http://localhost:3001', // Dirección de tu frontend
+  methods: ['GET', 'POST', 'PUT', 'DELETE'], // Métodos HTTP permitidos
+  credentials: true // Si necesitas enviar cookies o autenticación
+}));
 
 // Verificar la conexión a la base de datos
 sequelize.authenticate()  // intenta establecer una conexión con la base de datos utilizando los parámetros que definiste en database.js
