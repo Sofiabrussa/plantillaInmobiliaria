@@ -1,24 +1,37 @@
-@import url('https://fonts.googleapis.com/css2?family=Coming+Soon&family=Lacquer&family=Love+Ya+Like+A+Sister&family=Permanent+Marker&family=Unbounded:wght@200..900&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Coming+Soon&family=Lacquer&family=Love+Ya+Like+A+Sister&family=Permanent+Marker&family=Playpen+Sans:wght@100..800&family=Unbounded:wght@200..900&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Coming+Soon&family=Finger+Paint&family=Lacquer&family=Love+Ya+Like+A+Sister&family=Permanent+Marker&family=Playpen+Sans:wght@100..800&family=Unbounded:wght@200..900&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Coming+Soon&family=Finger+Paint&family=Lacquer&family=Love+Ya+Like+A+Sister&family=Permanent+Marker&family=Playpen+Sans:wght@100..800&family=Unbounded:wght@200..900&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap');
 
 
 /*Tipografias y colores*/
 :root {
-    --font-dibujo: "Lacquer", serif;
-    --font-title: "Playpen Sans", serif;
+    --font-dibujo: "Finger Paint", serif;
+    --font-title:  "Urbanist", serif;
+
   
     /* Colores (opcional) */
     --color-primary: #333;
     --color-secondary: #777;
+    --color-green: #59614c; 
   }
 
 
-/*
-.playpen-sans{
-    font-family: "Playpen Sans", serif;
-    font-optical-sizing: auto;
-    font-weight: <weight>: Use a value from 100 to 800;
+.coming-soon-regular {
+    font-family: "Coming Soon", serif;
+    font-weight: 400;
     font-style: normal;
   }
   
-*/
+
+.finger-paint-regular {
+    font-family: "Finger Paint", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+.urbanist-title {
+    font-family: "Urbanist", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+  }
+  

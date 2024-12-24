@@ -3,6 +3,7 @@ import { FaPlus } from "react-icons/fa";
 import CountUp from "react-countup";
 import { Box, Tabs, Tab } from '@mui/material';
 import React, { useState, useEffect } from "react";
+import "../../styles/variables.css"
 
 function Home() {
 
@@ -31,7 +32,7 @@ function Home() {
     <div className="container-fluid home d-flex" style={{ backgroundImage: `url("/inicio/inicio.png")` }}>
       <div className='container d-flex align-items-start flex-column justify-content-center'>
         <div className='title-home'>
-          <h1> Encontrá tu próximo <br /> <span id='span-home'> HOGAR</span> </h1>
+          <h1 class="urbanist-title"> Encontrá tu próximo <br /> <span class="finger-paint-regular"> HOGAR</span> </h1>
           <p> Te ayudamos a encontrar tu próximo hogar </p>
         </div>
         <div className='contadores'>
@@ -60,6 +61,18 @@ function Home() {
               textColor="secondary"
               indicatorColor="secondary"
               aria-label="secondary tabs example"
+              sx={{
+                '& .MuiTabs-indicator': {
+                  backgroundColor: 'var(--color-green)', 
+                },
+                '& .MuiTab-root': {
+                  color: 'var(--color-green)', 
+                },
+                '& .MuiTab-root.Mui-selected': {
+                  color: 'var(--color-green)', 
+                  fontWeight: 'bold', 
+                },
+              }}
             >
               <Tab value="one" label="Alquiler" />
               <Tab value="two" label="Venta" />
